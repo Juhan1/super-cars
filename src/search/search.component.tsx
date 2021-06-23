@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { findCars } from "../cars/car.api";
 import { Car } from "../cars/car";
 
-export const SearchComponent: React.FC = () => {
+interface childProps {
+  handleMake: (newMake: string, newModel: string) => void;
+}
+
+export const SearchComponent: React.FC<childProps> = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<Car[]>([]);
 
@@ -16,25 +20,36 @@ export const SearchComponent: React.FC = () => {
     fetchSearch();
   }, [searchTerm]);
 
+  function selectCar(newMake: string, newModel: string) {
+    props.handleMake(newMake, newModel);
+    setSearchTerm("");
+  }
+
   return (
     <div>
       <input
         className="search"
         type="search"
         placeholder="Search..."
+        value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <ul>
-        {searchResults.map((result) => {
-          return (
-            <li key={result.make + result.model}>
-              {result.make} {result.model}
-              <br />
-              {result.price}
-            </li>
-          );
-        })}
-      </ul>
+      {searchTerm !== "" && (
+        <ul>
+          {searchResults.map((result) => {
+            return (
+              <li
+                key={result.make + result.model}
+                onClick={() => selectCar(result.make, result.model)}
+              >
+                {result.make} {result.model}
+                <br />
+                {result.price}
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 };
