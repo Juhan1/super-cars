@@ -13,8 +13,7 @@ function App() {
   return (
     <div className="app">
       <SearchComponent handleMake={handleMake} />
-      <CarComponent />
-      {makeModel.join(" ")}
+      <CarComponent makeModel={makeModel} />
     </div>
   );
 }

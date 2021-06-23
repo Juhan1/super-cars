@@ -44,7 +44,12 @@ export const SearchComponent: React.FC<childProps> = (props) => {
               >
                 {result.make} {result.model}
                 <br />
-                {result.price}
+                {result.price.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 0,
+                })}
               </li>
             );
           })}
