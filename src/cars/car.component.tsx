@@ -46,14 +46,14 @@ export const CarComponent: React.FC<childProps> = (props) => {
               </ul>
             </div>
             <div className="priceBox">
-              <h1 className="priceTag">
+              <p className="priceTag">
                 {carDetails.price.toLocaleString("en-US", {
                   style: "currency",
                   currency: "USD",
                   minimumFractionDigits: 0,
                   maximumFractionDigits: 0,
                 })}
-              </h1>
+              </p>
               {carDetails.features.join(" - ")}
             </div>
           </div>

@@ -14,6 +14,7 @@ export const SearchComponent: React.FC<childProps> = (props) => {
   //hook to fetch the search results when searchTerm is changed
   useEffect(() => {
     async function fetchSearch() {
+      if(searchTerm.trim() === "") return;
       const request = await findCars(searchTerm);
       setSearchResults(request);
     }
