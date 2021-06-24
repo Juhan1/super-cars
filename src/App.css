@@ -1,6 +1,24 @@
 .app {
-  padding: 30px;
   min-height: 100vh;
   background-color: #282c34;
   color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchComponent {
+  margin-bottom: 0px;
+  margin-top: 70px;
+  width: 280px;
+}
+
+.carComponent {
+  margin: 50px;
+  height: 75%;
+  width: 75%;
+  text-align: center;
 }

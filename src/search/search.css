@@ -1,0 +1,34 @@
+.searchContainer {
+  position: absolute;
+  z-index: 1;
+}
+
+.search {
+  padding: 9px;
+  width: 280px;
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+.listComponent {
+  z-index: 10;
+  width: 280px;
+}
+
+.list {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0px;
+  background-color: #282c34a1;
+  border: 1px solid white;
+  border-radius: 0px 0px 25px 25px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.listItem {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  opacity: 1;
+}
